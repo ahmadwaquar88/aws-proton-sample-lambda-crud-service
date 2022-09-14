@@ -77,19 +77,19 @@ def get_task(event:,context:)
       error = input.error
       return {
         statusCode: error.status_code,
-        body: error.body
+        body: "This is proton error test"
       }
     end
     output, error = App.get_task(input)
     if error.nil?
       return {
         statusCode: 200,
-        body: output.to_output
+        body: "This is proton success test"
       }
     else
       return {
         statusCode: error.status_code,
-        body: error.body
+        body: "This is proton success error test"
       }
     end
   rescue StandardError => e
